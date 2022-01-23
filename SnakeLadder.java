@@ -28,12 +28,12 @@ public class SnakeLadder {
 				System.out.println("The player reached at a ladder.... ");
 				System.out.println("So you have to move forward from: "+currentPosi);
 				currentPosi += rollADie;
-				if( currentPosi >= finalPosition) {
+				if(currentPosi == finalPosition)
 					System.out.println("The player reached at winning Position i.e. 100, So Player won the game!!!!!!! ");
-				}
-				else {
-					System.out.println("The current Position of player is: "+currentPosi);
-				}	
+				else if( currentPosi > finalPosition) 
+					currentPosi -= rollADie;
+				else
+					System.out.println("The current Position of player is: "+currentPosi);	
 				break;
 			case snake:
 				System.out.println("The player reached at a snake.... ");
