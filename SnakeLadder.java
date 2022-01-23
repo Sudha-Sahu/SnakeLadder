@@ -13,11 +13,13 @@ public class SnakeLadder {
 		
 		System.out.println("Welcome to Snake and Ladder game!!!!");
 		Random random=new Random();
-
+		int countDie=0;
 		int currentPosi=0;
 		while(currentPosi <= finalPosition) {
 			int rollADie=random.nextInt(6)+1;
+			countDie++;
 			System.out.println("We get a number after a rolling a die that is: "+rollADie);
+			System.out.println("the dice is currently at position : "+currentPosi);
 			int checkNextRoll=random.nextInt(3);
 			System.out.println("The player gets a condition: "+checkNextRoll);
 			switch(checkNextRoll) {
@@ -28,12 +30,13 @@ public class SnakeLadder {
 				System.out.println("The player reached at a ladder.... ");
 				System.out.println("So you have to move forward from: "+currentPosi);
 				currentPosi += rollADie;
-				if(currentPosi == finalPosition)
+				if( currentPosi >= finalPosition) {
 					System.out.println("The player reached at winning Position i.e. 100, So Player won the game!!!!!!! ");
-				else if( currentPosi > finalPosition) 
-					currentPosi -= rollADie;
-				else
-					System.out.println("The current Position of player is: "+currentPosi);	
+					System.out.println(countDie+" number of times the dice was rolled to win the game...");
+				}
+				else {
+					System.out.println("The current Position of player is: "+currentPosi);
+				}	
 				break;
 			case snake:
 				System.out.println("The player reached at a snake.... ");
