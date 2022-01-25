@@ -1,4 +1,4 @@
-package com.game;
+package com.Bridgelabz.SnakeLadder;
 
 public class SnakeLadder {
 
