@@ -1,18 +1,18 @@
-package com.game;
+package com.Bridgelabz.SnakeLadder;
 import java.util.*;
 
 public class SnakeLadder {
 
-	static final int ladder=1;
-	static final int snake=2;
-	static final int noPlay=0;
-	static final int startPosition = 0;
-
+	static final int LADDER=1;
+	static final int SNAKE=2;
+	static final int NOPLAY=0;
+	static final int STARTPOSITION=0;
+	
 	public static void main(String[] args) {
 		
 		System.out.println("Welcome to Snake and Ladder game!!!!");
 		Random random=new Random();
-
+		
 		int currentPosi=0;
 		int rollADie=random.nextInt(6)+1;
 		System.out.println("We get a number after a rolling a die that is: " + rollADie);
@@ -21,16 +21,16 @@ public class SnakeLadder {
 		System.out.println("The player gets a condition: " + checkNextRoll);
 		
 		switch(checkNextRoll) {
-		case noPlay:
+		case NOPLAY:
 			System.out.println("The player stay in same position that is: " + currentPosi);
 			break;
-		case ladder:
+		case LADDER:
 			System.out.println("The player reached at a ladder.... ");
 			System.out.println("So you have to move forward from: " + currentPosi);
 			currentPosi += rollADie;
 			System.out.println("The current Position of player is: " + currentPosi);	
 			break;
-		case snake:
+		case SNAKE:
 			System.out.println("The player reached at a snake.... ");
 			System.out.println("So you have to move Backward from: " + currentPosi);
 			currentPosi -= rollADie;
