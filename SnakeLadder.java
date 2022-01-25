@@ -3,10 +3,13 @@ package com.Bridgelabz.SnakeLadder;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 public class SnakeLadder {
 
 =======
+=======
+>>>>>>> UC6_CountingDice
 import java.util.Random;
 
 public class SnakeLadder {
@@ -54,6 +57,7 @@ public class SnakeLadder {
 		
 		int currentPosi=0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		int rollADie=random.nextInt(6)+1;
 		System.out.println("We get a number after a rolling a die that is: " + rollADie);
 		
@@ -95,6 +99,8 @@ public class SnakeLadder {
 		int currentPosi=0;
 =======
 >>>>>>> UC5_ExactWinPosition
+=======
+>>>>>>> UC6_CountingDice
 		while(currentPosi <= FINALPOSITION) {
 			int rollADie=random.nextInt(6)+1;
 			System.out.println("We get a number after a rolling a die that is: "+rollADie);
@@ -103,8 +109,11 @@ public class SnakeLadder {
 			switch(checkNextRoll) {
 			case NOPLAY:
 <<<<<<< HEAD
+<<<<<<< HEAD
 				System.out.println("The player stay at same position that is: "+currentPosi);
 =======
+=======
+>>>>>>> UC6_CountingDice
 				System.out.println("The player stay in same position that is: "+currentPosi);
 >>>>>>> UC5_ExactWinPosition
 				break;
@@ -113,6 +122,9 @@ public class SnakeLadder {
 				System.out.println("So you have to move forward from: "+currentPosi);
 				currentPosi += rollADie;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> UC6_CountingDice
 				if( currentPosi >= FINALPOSITION) {
 					System.out.println("The player reached at winning Position i.e. 100, So Player won the game!!!!!!! ");
 				}
@@ -132,7 +144,7 @@ public class SnakeLadder {
 				System.out.println("The player reached at a snake.... ");
 				System.out.println("So you have to move Backward from: "+currentPosi);
 				currentPosi -= rollADie;
-				if( currentPosi >= 0) {
+				if( currentPosi > 0) {
 					System.out.println("The current Position of player is: "+currentPosi);
 				}
 				else {
