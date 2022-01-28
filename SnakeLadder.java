@@ -1,169 +1,83 @@
 package com.Bridgelabz.SnakeLadder;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-public class SnakeLadder {
-
-=======
-=======
->>>>>>> UC6_CountingDice
 import java.util.Random;
 
 public class SnakeLadder {
 
-	static final int LADDER=1;
-	static final int SNAKE=2;
-	static final int NOPLAY=0;
 	static final int STARTPOSITION = 0;
 	static final int FINALPOSITION=100;
 
->>>>>>> UC5_ExactWinPosition
-	public static void main(String[] args) {
-		
-		System.out.println("Welcome to Snake and Ladder game!!!!");
-=======
-import java.util.Random;
+	public static void playGame(int posi1, int posi2) {
 
-public class SnakeLadder {
-	
-	static final int STARTPOSITION = 0;
-	
-	public static void main(String[] args) {
-		
-		System.out.println("Welcome to Snake and Ladder game!!!!");
-		System.out.println("Initially the player is at start position that is : "+ STARTPOSITION);
-		
-		Random random=new Random(); 
-		int rollADie=random.nextInt(6)+1;
-		System.out.println("We get a number after a rolling a die that is: " + rollADie);
->>>>>>> UC2_RandomDiceNumber
-=======
-import java.util.*;
-
-public class SnakeLadder {
-
-	static final int LADDER=1;
-	static final int SNAKE=2;
-	static final int NOPLAY=0;
-	static final int STARTPOSITION=0;
-	
-	public static void main(String[] args) {
-		
-		System.out.println("Welcome to Snake and Ladder game!!!!");
+		int countDie1=0, countDie2=0, dice1=0 , dice2=0;
 		Random random=new Random();
-		
-		int currentPosi=0;
-<<<<<<< HEAD
-<<<<<<< HEAD
-		int rollADie=random.nextInt(6)+1;
-		System.out.println("We get a number after a rolling a die that is: " + rollADie);
-		
-		int checkNextRoll=random.nextInt(3);
-		System.out.println("The player gets a condition: " + checkNextRoll);
-		
-		switch(checkNextRoll) {
-		case NOPLAY:
-			System.out.println("The player stay in same position that is: " + currentPosi);
-			break;
-		case LADDER:
-			System.out.println("The player reached at a ladder.... ");
-			System.out.println("So you have to move forward from: " + currentPosi);
-			currentPosi += rollADie;
-			System.out.println("The current Position of player is: " + currentPosi);	
-			break;
-		case SNAKE:
-			System.out.println("The player reached at a snake.... ");
-			System.out.println("So you have to move Backward from: " + currentPosi);
-			currentPosi -= rollADie;
-			if( currentPosi >= 0) {
-				System.out.println("The current Position of player is: " + currentPosi);
-=======
-import java.util.Random;
-
-public class SnakeLadder {
-
-	static final int LADDER=1;
-	static final int SNAKE=2;
-	static final int NOPLAY=0;
-	static final int STARTPOSITION = 0;
-	static final int FINALPOSITION=100;
-	
-	public static void main(String[] args) {
-		
-		System.out.println("Welcome to Snake and Ladder game!!!!");
-		Random random=new Random();
-		
-		int currentPosi=0;
-=======
->>>>>>> UC5_ExactWinPosition
-=======
->>>>>>> UC6_CountingDice
-		while(currentPosi <= FINALPOSITION) {
-			int rollADie=random.nextInt(6)+1;
-			System.out.println("We get a number after a rolling a die that is: "+rollADie);
+		while(posi1 < FINALPOSITION && posi2 < FINALPOSITION) {
+			dice1 = random.nextInt(6)+1;
+			countDie1++;
+			System.out.println("Player1 get : "+ dice1);
 			int checkNextRoll=random.nextInt(3);
-			System.out.println("The player gets a condition: "+checkNextRoll);
-			switch(checkNextRoll) {
-			case NOPLAY:
-<<<<<<< HEAD
-<<<<<<< HEAD
-				System.out.println("The player stay at same position that is: "+currentPosi);
-=======
-=======
->>>>>>> UC6_CountingDice
-				System.out.println("The player stay in same position that is: "+currentPosi);
->>>>>>> UC5_ExactWinPosition
+			System.out.println("The player1 gets a condition: "+checkNextRoll);
+			posi1 = check(checkNextRoll, posi1, dice1);
+
+			if( posi1 == FINALPOSITION) {
+				System.out.println("The player1 reached at winning Position, So Player1 won the game!!!!!!! ");
+				System.out.println(countDie1+" number of times the dice was rolled to win the game...");
 				break;
-			case LADDER:
-				System.out.println("The player reached at a ladder.... ");
-				System.out.println("So you have to move forward from: "+currentPosi);
-				currentPosi += rollADie;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> UC6_CountingDice
-				if( currentPosi >= FINALPOSITION) {
-					System.out.println("The player reached at winning Position i.e. 100, So Player won the game!!!!!!! ");
-				}
-				else {
-					System.out.println("The current Position of player is: "+currentPosi);
-				}	
-=======
-				if(currentPosi == FINALPOSITION)
-					System.out.println("The player reached at winning Position i.e. 100, So Player won the game!!!!!!! ");
-				else if( currentPosi > FINALPOSITION) 
-					currentPosi -= rollADie;
-				else
-					System.out.println("The current Position of player is: "+currentPosi);	
->>>>>>> UC5_ExactWinPosition
-				break;
-			case SNAKE:
-				System.out.println("The player reached at a snake.... ");
-				System.out.println("So you have to move Backward from: "+currentPosi);
-				currentPosi -= rollADie;
-				if( currentPosi > 0) {
-					System.out.println("The current Position of player is: "+currentPosi);
-				}
-				else {
-					currentPosi=0;
-					System.out.println("The current Position of player is: "+currentPosi);
-				}
-				break;
-			default:
-				System.out.println("Its default case");
->>>>>>> UC4_WinningPosition
 			}
-			else {
-				currentPosi=0;
-				System.out.println("The current Position of player is: " + currentPosi);
+			else if( posi1 > FINALPOSITION) 
+				posi1 -= dice1;
+			else 
+				System.out.println("The current Position of player1 is: "+ posi1);
+
+			dice2 = random.nextInt(6)+1;
+			countDie2++;
+			System.out.println("Player2 get : "+ dice2);
+			checkNextRoll=random.nextInt(3);
+			System.out.println("The player2 gets a condition: "+checkNextRoll);
+			posi2 = check(checkNextRoll, posi2, dice2);
+
+			if( posi2 == FINALPOSITION) {
+				System.out.println("The player2 reached at winning Position, So Player2 won the game!!!!!!! ");
+				System.out.println(countDie2+" number of times the dice was rolled to win the game...");
+				break;
 			}
+			else if( posi2 > FINALPOSITION) 
+				posi2 -= dice2;
+			else 
+				System.out.println("The current Position of player2 is: "+ posi2);
+
+		}
+	}
+
+
+	public static int check(int checkNextRoll, int posi, int roll) {
+
+		switch(checkNextRoll) {
+		case 1:
+			System.out.println("The player reached at a ladder.... ");
+			System.out.println("So you have to move forward from: "+ posi);
+			posi += roll;
+			break;
+		case 2:
+			System.out.println("The player reached at a snake.... ");
+			System.out.println("So you have to move Backward from: "+ posi);
+			posi -= roll;
+			if( posi > 0) 
+				System.out.println("The current Position of player is: "+posi);
+			else 
+				posi=0;
 			break;
 		default:
 			System.out.println("Its default case");
 		}
->>>>>>> UC3_CheckLadderSnake
+		return posi;
 	}
+
+	public static void main(String[] args) {
+
+		System.out.println("Welcome to Snake and Ladder game!!!!");
+		int currentPosi1=0 , currentPosi2=0;
+		playGame(currentPosi1 , currentPosi2);
+
+	}
+
 }
